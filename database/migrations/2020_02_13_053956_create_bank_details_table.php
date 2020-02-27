@@ -17,7 +17,7 @@ class CreateBankDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('bank');
+            $table->string('bank_name');
             $table->string('account_type');
             $table->string('account_number');
             $table->timestamps();
