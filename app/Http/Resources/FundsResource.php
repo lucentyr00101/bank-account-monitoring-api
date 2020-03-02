@@ -19,7 +19,7 @@ class FundsResource extends JsonResource
             'id' => $this->id,
             'user' => new UserResource($this->user),
             'amount' => $this->amount,
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at->format('F d, Y h:i:s A'),
         ];
     }
 }
