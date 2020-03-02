@@ -41,4 +41,12 @@ class User extends Authenticatable
     public function bankDetails() {
         return $this->hasOne('App\BankDetail', 'user_id');
     }
+
+    public function funds() {
+        return $this->hasMany('App\Funds', 'user_id');
+    }
+
+    public function getFullNameAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
