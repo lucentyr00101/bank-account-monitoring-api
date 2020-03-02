@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->group(function() {
     Route::resource('users', 'UserController');
+    Route::resource('funds', 'FundController');
 });
