@@ -15,7 +15,7 @@ class FundController extends Controller
     }
 
     public function index() {
-        $funds = Fund::latest()->get();
+        $funds = Fund::latest()->paginate(10);
         return FundsResource::collection($funds);
     }
     
