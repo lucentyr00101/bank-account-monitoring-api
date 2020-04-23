@@ -18,17 +18,17 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
-        $user              = new User;
-        $user->first_name  = $request->first_name;
-        $user->middle_name = $request->middle_name;
-        $user->last_name   = $request->last_name;
-        $user->birthday    = date('Y-m-d', strtotime($request->birthday));
-        $user->email       = $request->email;
-        $user->password    = bcrypt($request->password);
+        $user                 = new User;
+        $user->first_name     = $request->first_name;
+        $user->middle_initial = $request->middle_initial;
+        $user->last_name      = $request->last_name;
+        $user->birthday       = date('Y-m-d', strtotime($request->birthday));
+        $user->email          = $request->email;
+        $user->password       = bcrypt($request->password);
 
-        $details = new BankDetail;
-        $details->bank_name = $request->bank_name;
-        $details->account_type = $request->account_type;
+        $details                 = new BankDetail;
+        $details->bank_name      = $request->bank_name;
+        $details->account_type   = $request->account_type;
         $details->account_number = $request->account_number;
 
         if($user->save() && $user->bankDetails()->save($details)) {

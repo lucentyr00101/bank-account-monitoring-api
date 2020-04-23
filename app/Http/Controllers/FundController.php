@@ -18,4 +18,10 @@ class FundController extends Controller
         $funds = Fund::latest()->get();
         return FundsResource::collection($funds);
     }
+    
+    public function deduct(Request $request) {
+        $fund = new Fund;
+        $fund->amount = '-' . $request->amount;
+        return $fund->user()->associate($request->user())->save() ? 200 : 'error';
+    }
 }
