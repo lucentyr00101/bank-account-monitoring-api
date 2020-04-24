@@ -23,3 +23,7 @@ Route::middleware('auth:api')->group(function() {
     Route::resource('funds', 'FundController');
     Route::post('/funds/deduct', 'FundController@deduct');
 });
+
+Route::middleware('api')->group(function() {
+    Route::post('/user/register', 'UserController@register');
+});

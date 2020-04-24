@@ -17,7 +17,7 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function store(Request $request) {
+    public function register(Request $request) {
         $user                 = new User;
         $user->first_name     = $request->first_name;
         $user->middle_initial = $request->middle_initial;
