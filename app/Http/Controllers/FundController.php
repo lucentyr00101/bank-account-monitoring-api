@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Fund;
 use App\Http\Resources\FundsResource;
+use Auth;
 
 class FundController extends Controller
 {
@@ -15,7 +16,7 @@ class FundController extends Controller
     }
 
     public function index() {
-        $funds = Fund::latest()->paginate(10);
+        $funds = Auth::user()->funds()->latest()->paginate(10);
         return FundsResource::collection($funds);
     }
     

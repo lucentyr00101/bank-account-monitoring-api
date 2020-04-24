@@ -43,7 +43,7 @@ class User extends Authenticatable
     }
 
     public function funds() {
-        return $this->hasMany('App\Funds', 'user_id');
+        return $this->hasMany('App\Fund', 'user_id');
     }
 
     public function getFullNameAttribute() {
