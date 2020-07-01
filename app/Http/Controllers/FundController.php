@@ -12,6 +12,7 @@ class FundController extends Controller
     public function store(Request $request) {
         $fund = new Fund;
         $fund->amount = $request->amount;
+        $fund->remarks = $request->remarks;
         return $fund->user()->associate($request->user())->save() ? 200 : 'error';
     }
 
